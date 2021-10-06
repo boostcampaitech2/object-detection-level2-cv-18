@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/object-detection-level2-cv-18.iml" filepath="$PROJECT_DIR$/.idea/object-detection-level2-cv-18.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sohn.iml" filepath="$PROJECT_DIR$/.idea/sohn.iml" />
     </modules>
   </component>
 </project>

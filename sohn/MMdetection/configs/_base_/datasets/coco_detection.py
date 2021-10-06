@@ -31,8 +31,8 @@ test_pipeline = [ # 어노테이션 없음
         ])
 ]
 data = dict(
-    samples_per_gpu=2, # gpu 당 배치 사이즈 개수
-    workers_per_gpu=2, # 데이터로더에 worker 개수 선언과 동일
+    samples_per_gpu=4, # gpu 당 배치 사이즈 개수
+    workers_per_gpu=4, # 데이터로더에 worker 개수 선언과 동일
     train=dict(
         type=dataset_type,
         ann_file=data_root + 'train.json',
