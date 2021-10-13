@@ -1,0 +1,66 @@
+wandb_version: 1
+
+anchor_t:
+  value: 6
+batch_size:
+  value: 32
+box:
+  value: 0.05
+cls:
+  value: 0.3
+cls_pw:
+  value: 1
+copy_paste:
+  value: 0.2
+data:
+  value: data/trash.yaml
+degrees:
+  value: 0
+epochs:
+  value: 100
+fl_gamma:
+  value: 0
+fliplr:
+  value: 0.6
+flipud:
+  value: 0.2
+hsv_h:
+  value: 0.015
+hsv_s:
+  value: 0.3
+hsv_v:
+  value: 0.4
+iou_t:
+  value: 0.2
+lr0:
+  value: 0.01
+lrf:
+  value: 0.1
+mixup:
+  value: 0.25
+momentum:
+  value: 0.95
+mosaic:
+  value: 1
+obj:
+  value: 0.7
+obj_pw:
+  value: 1
+perspective:
+  value: 0.01
+scale:
+  value: 0.9
+shear:
+  value: 0
+translate:
+  value: 0.5
+warmup_bias_lr:
+  value: 0.2
+warmup_epochs:
+  value: 3
+warmup_momentum:
+  value: 0.8
+weight_decay:
+  value: 0.0003
+weights:
+  value: yolov5x.pt

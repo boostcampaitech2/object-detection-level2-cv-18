@@ -1,0 +1,86 @@
+# Hyperparameters for training
+# To set range- 
+# Provide min and max values as:
+#      parameter:
+#         
+#         min: scalar
+#         max: scalar
+# OR
+#
+# Set a specific list of search space-
+#     parameter: 
+#         values: [scalar1, scalar2, scalar3...]
+#         
+# You can use grid, bayesian and hyperopt search strategy 
+# For more info on configuring sweeps visit - https://docs.wandb.ai/guides/sweeps/configuration
+
+program: utils/loggers/wandb/sweep.py
+method: bayes
+metric:
+  name: metrics/mAP_0.5
+  goal: maximize
+
+parameters:
+  # hyperparameters: set either min, max range or values list
+  data:
+    value: "data/trash.yaml"
+  batch_size:
+    values: [32, 64]
+  epochs:
+    values: [50, 75, 100]
+  lr0:
+    values: [1e-1, 1e-2, 1e-3]
+  lrf:
+    values: [0.1, 0.2, 0.3]
+  momentum:
+    values: [0.937, 0.95, 0.975]
+  weight_decay:
+    values: [0.0006, 0.0005, 0.0004, 0.0003]
+  warmup_epochs:
+    values: [1, 1.5, 3]
+  warmup_momentum:
+    values: [0.8, 0.9, 0.95]
+  warmup_bias_lr:
+    values: [0.0, 0.1, 0.2]
+  box:
+    values: [0.01, 0.03, 0.05]
+  cls:
+    values: [0.3, 0.4, 0.5, 0.6]
+  cls_pw:
+    values: [1]
+  obj:
+    values: [0.7, 0.8, 0.9, 1]
+  obj_pw:
+    values: [1]
+  iou_t:
+    values: [0.2, 0.3, 0.4]
+  anchor_t:
+    values: [2, 4, 6]
+  fl_gamma:
+    values: [0, 0.05, 0.1, 0.2]
+  hsv_h:
+    values: [0.015, 0.01, 0.02, 0.03]
+  hsv_s:
+    values: [0.3, 0.5, 0.7]
+  hsv_v:
+    values: [0.4, 0.2, 0.1]
+  degrees:
+    values: [0, 15, 30, 45]
+  translate:
+    values: [0.5, 0.3, 0.1]
+  scale:
+    values: [0.9, 0.7, 0.5, 0.3]
+  shear:
+    values: [0, 0.5, 0.1]
+  perspective:
+    values: [0, 0.1, 0.01]
+  flipud:
+    values: [0, 0.1, 0.2]
+  fliplr:
+    values: [0.4, 0.5, 0.6]
+  mosaic:
+    values: [1]
+  mixup:
+    values: [0, 0.25, 0.5, 0.75]
+  copy_paste:
+    values: [0, 0.1, 0.2]
