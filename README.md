@@ -99,9 +99,30 @@ $ pip3 install -r requirements.txt
 
 # 2. Training
 
+## 2.1. Before training, convert dataset format (**From COCO To YOLO**)
+
+## 2.2. Train 4 models
+1. detectors-cascade-rcnn-r50
+
+2. cascade-rcnn-swin-base
+
+3. cascade-rcnn-r50-fpn
+
+4. YOLOv5x6
+	* Train pre-trained model for 10-epochs
+	* Train pre-trained model for 20-epochs
+	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
+
 # 3. Inferencing
 
 # 4. Ensembling
+1. WBF (Weighted Boxes Fusion)
 
 # 5. From train To submission
-
+```bash
+$ python run.py
+```
+OR
+```bash
+$ sh run.sh
+```
