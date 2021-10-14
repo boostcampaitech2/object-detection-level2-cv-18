@@ -17,8 +17,6 @@
 	```
 	* GPU: v100
 1. Python
-2. PyTorch
-
 
 ## 1.2. Prepare Dataset
 ```bash
@@ -64,6 +62,12 @@ $ git clone https://github.com/ssaru/convert2Yolo.git
 $ cd convert2Yolo
 $ pip3 install -r requirements.txt
 ```
+
+4. WBF (Weighted Boxes Fusion)
+```bash
+$ pip install ensemble-boxes
+```
+> ref : [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
 
 ## 1.4. Completed Structure
 ```plain text
