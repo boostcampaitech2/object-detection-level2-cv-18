@@ -44,30 +44,30 @@ $ rm data.tar.gz
 
 ## 1.3. Prepare Libraries
 1. MMDetection
-```bash
-$ git clone https://github.com/open-mmlab/mmdetection.git
-$ cd mmdetection
-$ pip install -v -e . 
-```
+	```bash
+	$ git clone https://github.com/open-mmlab/mmdetection.git
+	$ cd mmdetection
+	$ pip install -v -e . 
+	```
 2. YOLOv5
-```bash
-$ git clone https://github.com/ultralytics/yolov5.git
-$ cd yolov5
-$ pip install -r requirements.txt
-```
+	```bash
+	$ git clone https://github.com/ultralytics/yolov5.git
+	$ cd yolov5
+	$ pip install -r requirements.txt
+	```
 
 3. convert2Yolo
-```bash
-$ git clone https://github.com/ssaru/convert2Yolo.git
-$ cd convert2Yolo
-$ pip3 install -r requirements.txt
-```
+	```bash
+	$ git clone https://github.com/ssaru/convert2Yolo.git
+	$ cd convert2Yolo
+	$ pip3 install -r requirements.txt
+	```
 
 4. WBF (Weighted Boxes Fusion)
-```bash
-$ pip install ensemble-boxes
-```
-> ref : [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
+	```bash
+	$ pip install ensemble-boxes
+	```
+	> ref : [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
 
 ## 1.4. Completed Structure
 ```plain text
@@ -104,6 +104,26 @@ $ pip install ensemble-boxes
 # 2. Training
 
 ## 2.1. Before training, convert dataset format (**From COCO To YOLO**)
+* Prepare the `*.names` file as below.
+	```bash
+	$ cat ./dataset/trash_coco.names
+	General trash
+	Paper
+	Paper pack
+	Metal
+	Glass
+	Plastic
+	Styrofoam
+	Plastic bag
+	Battery
+	Clothing
+	```
+
+* Convert dataset format by using `convert2Yolo`
+	```bash
+	$ cd convert2Yolo
+	$ python3 example.py --datasets COCO --img_path ../dataset/ --label ../dataset/train.json --convert_output_path ../dataset/ --img_type ".jpg" --manifest_path ../dataset --cls_list_file ../dataset/trash_coco.names
+	```
 
 ## 2.2. Train 4 models
 1. detectors-cascade-rcnn-r50
@@ -124,20 +144,20 @@ $ pip install ensemble-boxes
 	* Default Config
 		```json
 		{
-    			"csvs" : ["./output447jia.csv", 
-    			          "./output455ik.csv",
-    			          "./output487.csv",
-    			          "./output530.csv",
-    			          "./output541.csv",
-    			          "./output559.csv"
-    			          ],
-    			"save_path" : "./result_outputs.csv",
-    			"ensemble_mode" : "wbf",
-    			"weights" : "None",
-    			"iou_thr" : 0.5,
-    			"skip_box_thr" : 0.0001,
-    			"sigma" : 0.1,
-    			"img_size" : 1024
+    		"csvs" : ["./output447jia.csv", 
+    		          "./output455ik.csv",
+    		          "./output487.csv",
+    		          "./output530.csv",
+    		          "./output541.csv",
+    		          "./output559.csv"
+    		          ],
+    		"save_path" : "./result_outputs.csv",
+    		"ensemble_mode" : "wbf",
+    		"weights" : "None",
+    		"iou_thr" : 0.5,
+    		"skip_box_thr" : 0.0001,
+    		"sigma" : 0.1,
+    		"img_size" : 1024
 		}
 		```
 		> **csvs:** 단일 모델이 예측한 결과 `csv` 파일들  
@@ -154,5 +174,6 @@ $ sh run.sh
 
 # 6. Participants
 |name|김서기|김승훈|손지아|이상은|조익수|배민한|
+|:--:|:---:|:---:|:---:|:---:|:---:|:---:|
 |github| | | | | | |
 
