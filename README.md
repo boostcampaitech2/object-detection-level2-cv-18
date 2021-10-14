@@ -7,8 +7,8 @@
 	$ uname -a
 	Linux 78709cb2ea9c 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
 	```
-	> 커널: *4.4.0-59-generic* 버전  
-	> OS : x86 계열의 64bit 운영체제
+	> **커널:** 4.4.0-59-generic 버전  
+	> **OS:** x86 계열의 64bit 운영체제
 	
 	* CPU
 	```plain text
@@ -41,8 +41,8 @@ $ rm data.tar.gz
     ├─train.json
     └─test.json
 ```
-> *Trash Dataset Copy Rights:* [Naver Connect](https://connect.or.kr)
-> *Trash Dataset Copy Rights License:* CC-BY-2.0
+> **Trash Dataset Copy Rights:** [Naver Connect](https://connect.or.kr)  
+> **Trash Dataset Copy Rights License:** CC-BY-2.0
 
 ## 1.3. Prepare Libraries
 1. MMDetection
