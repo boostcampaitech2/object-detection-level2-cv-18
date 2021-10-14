@@ -9,7 +9,7 @@
 
 ## 1.2. Prepare Dataset
 ```bash
-$ wget wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
+$ wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
 $ tar -xvfz data.tar.gz dataset
 ```
 * dataset(*COCO Format*) structure
@@ -27,7 +27,7 @@ $ tar -xvfz data.tar.gz dataset
     ├─train.json
     └─test.json
 ```
-> *Trash Dataset Copy Rights:* ![Naver Connect](https://connect.or.kr)
+> *Trash Dataset Copy Rights:* [Naver Connect](https://connect.or.kr)
 
 ## 1.3. Prepare Libraries
 1. MMDetection
