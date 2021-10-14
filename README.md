@@ -52,13 +52,11 @@ $ rm -rf ./dataset/*/.*.jpg
 ## 1.3. Prepare Libraries
 1. MMDetection
 	```bash
-	$ git clone https://github.com/open-mmlab/mmdetection.git
 	$ cd ./mmdetection
 	$ pip install -v -e . 
 	```
 2. YOLOv5
 	```bash
-	$ git clone https://github.com/ultralytics/yolov5.git
 	$ cd ./yolov5
 	$ pip install -r requirements.txt
 	```
@@ -129,7 +127,14 @@ $ rm -rf ./dataset/*/.*.jpg
 * Convert dataset format by using `convert2Yolo`
 	```bash
 	$ cd ./convert2Yolo
-	$ python3 example.py --datasets COCO --img_path ../dataset/ --label ../dataset/train.json --convert_output_path ../dataset/ --img_type ".jpg" --manifest_path ../dataset --cls_list_file ../dataset/trash_coco.names
+	$ python3 example.py \
+		--datasets COCO \
+		--img_path ../dataset/ \
+		--label ../dataset/train.json \
+		--convert_output_path ../dataset/ \
+		--img_type ".jpg" \
+		--manifest_path ../dataset \
+		--cls_list_file ../dataset/trash_coco.names
 	```
 
 * Then, we have the following structure.
@@ -169,19 +174,22 @@ $ rm -rf ./dataset/*/.*.jpg
 1. detectors-cascade-rcnn-r50
 	```bash
 	$ cd ./mmdetection
-	$ python tools/train.py configs/trash/detectors_cascade_rcnn_r50.py
+	$ python tools/train.py \
+		configs/trash/detectors_cascade_rcnn_r50.py
 	```
 
 2. cascade-rcnn-swin-base
 	```bash
 	$ cd ./mmdetection
-	$ python configs/trash/swin/cascade_rcnn_swin_base_fpn.py
+	$ python tools/train.py \
+		configs/trash/swin/cascade_rcnn_swin_base_fpn.py
 	```
 
 3. cascade-rcnn-r50-fpn
 	```bash
 	$ cd ./mmdetection
-	$ python tools/train.py configs/trash/cascade_rcnn_r50_fpn.py 
+	$ python tools/train.py \
+		configs/trash/cascade_rcnn_r50_fpn.py 
 	```
 
 4. YOLOv5x6
@@ -192,25 +200,41 @@ $ rm -rf ./dataset/*/.*.jpg
 1. detectors-cascade-rcnn-r50
 	```bash
 	$ cd ./mmdetection
-	$ python tools/test.py confings/trash/detectors_cascade_rcnn_r50.py work_dirs/detectors_cascade_rcnn_r50/best*.pth --out work_dirs/detectors_cascade_rcnn_r50/best.pkl
-	$ python tools/pkl_to_submission.py --pkl work_dirs/detectors_cascade_rcnn_r50/best.pkl --csv work_dirs/detectors_cascade_rcnn_r50.csv
-	$ cp work_dirs/detectors_cascade_rcnn_r50.csv ../submissions_for_single_model/submission_detectors_cascade_rcnn_r50.csv
+	$ python tools/test.py \
+		confings/trash/detectors_cascade_rcnn_r50.py \
+		work_dirs/detectors_cascade_rcnn_r50/best*.pth \
+		--out work_dirs/detectors_cascade_rcnn_r50/best.pkl
+	$ python tools/pkl_to_submission.py \
+		--pkl work_dirs/detectors_cascade_rcnn_r50/best.pkl \
+		--csv work_dirs/detectors_cascade_rcnn_r50.csv
+	$ cp work_dirs/detectors_cascade_rcnn_r50.csv \
+		../submissions_for_single_model/submission_detectors_cascade_rcnn_r50.csv
 	```
 
 2. cascade-rcnn-r50-fpn
 	```bash
 	$ cd ./mmdetection
-	$ python confings/trash/cascade_rcnn_r50_fpn.py work_dirs/cascade_rcnn_r50_fpn/best*.pth --out work_dirs/cascade_rcnn_r50_fpn/best.pkl
-	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_r50_fpn/best.pkl --csv work_dirs/cascade_rcnn_r50_fpn.csv
-	$ cp work_dirs/cascade_rcnn_r50_fpn.csv ../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
+	$ python confings/trash/cascade_rcnn_r50_fpn.py \
+		work_dirs/cascade_rcnn_r50_fpn/best*.pth \
+		--out work_dirs/cascade_rcnn_r50_fpn/best.pkl
+	$ python tools/pkl_to_submission.py \
+		--pkl work_dirs/cascade_rcnn_r50_fpn/best.pkl \
+		--csv work_dirs/cascade_rcnn_r50_fpn.csv
+	$ cp work_dirs/cascade_rcnn_r50_fpn.csv \
+		../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
 	```
 
 3. cascade-rcnn-swin-base
 	```bash
 	$ cd ./mmdetection
-	$ python confings/trash/swin/cascade_rcnn_swin_base_fpn.py work_dirs/cascade_rcnn_swin_base_fpn/best*.pth --out work_dirs/cascade_rcnn_swin_base_fpn/best.pkl
-	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl --csv work_dirs/cascade_rcnn_swin_base_fpn.csv
-	$ cp work_dirs/cascade_rcnn_swin_base_fpn.csv ../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
+	$ python confings/trash/swin/cascade_rcnn_swin_base_fpn.py \
+		work_dirs/cascade_rcnn_swin_base_fpn/best*.pth \
+		--out work_dirs/cascade_rcnn_swin_base_fpn/best.pkl
+	$ python tools/pkl_to_submission.py \
+		--pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl \
+		--csv work_dirs/cascade_rcnn_swin_base_fpn.csv
+	$ cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
+		../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
 	```
 
 4. YOLOv5x6
