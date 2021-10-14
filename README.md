@@ -4,13 +4,14 @@
 1. Python
 2. PyTorch
 3. Hardware
-  * v100
+	* v100
 
 
 ## 1.2. Prepare Dataset
 ```bash
 $ wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
 $ tar -xvfz data.tar.gz dataset
+$ rm data.tar.gz
 ```
 * dataset(*COCO Format*) structure
 ```plain text
@@ -28,6 +29,7 @@ $ tar -xvfz data.tar.gz dataset
     └─test.json
 ```
 > *Trash Dataset Copy Rights:* [Naver Connect](https://connect.or.kr)
+> *Trash Dataset Copy Rights License:* CC-BY-2.0
 
 ## 1.3. Prepare Libraries
 1. MMDetection
