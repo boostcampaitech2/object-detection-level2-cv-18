@@ -1,5 +1,5 @@
 _base_ = [
-    '../M_cascade_rcnn_r50_fpn.py',
+    '../M_cascade_rcnn_r50_fpn_2.py',
 	'../dataset.py',
     'swin_schedule_warm_restarts.py',
     '../../_base_/default_runtime.py'
