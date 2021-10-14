@@ -96,7 +96,7 @@ $ rm -rf ./dataset/*/.*.jpg
 ├─yolov5/
 ├─convert2Yolo
 |
-├─submissions_for_sigle_model/
+├─submissions_for_single_model/
 |    ├─submission_yolov5s.csv
 |    ├─submission_faster_rcnn.csv
 |    ├─...
@@ -153,7 +153,7 @@ $ rm -rf ./dataset/*/.*.jpg
 	├─yolov5/
 	├─convert2Yolo
 	|
-	├─submissions_for_sigle_model/
+	├─submissions_for_single_model/
 	|    ├─submission_yolov5s.csv
 	|    ├─submission_faster_rcnn.csv
 	|    ├─...
@@ -194,6 +194,7 @@ $ rm -rf ./dataset/*/.*.jpg
 	$ cd ./mmdetection
 	$ python tools/test.py confings/trash/detectors_cascade_rcnn_r50.py work_dirs/detectors_cascade_rcnn_r50/best*.pth --out work_dirs/detectors_cascade_rcnn_r50/best.pkl
 	$ python tools/pkl_to_submission.py --pkl work_dirs/detectors_cascade_rcnn_r50/best.pkl --csv work_dirs/detectors_cascade_rcnn_r50.csv
+	$ cp work_dirs/detectors_cascade_rcnn_r50.csv ../submissions_for_single_model/submission_detectors_cascade_rcnn_r50.csv
 	```
 
 2. cascade-rcnn-r50-fpn
@@ -201,6 +202,7 @@ $ rm -rf ./dataset/*/.*.jpg
 	$ cd ./mmdetection
 	$ python confings/trash/cascade_rcnn_r50_fpn.py work_dirs/cascade_rcnn_r50_fpn/best*.pth --out work_dirs/cascade_rcnn_r50_fpn/best.pkl
 	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_r50_fpn/best.pkl --csv work_dirs/cascade_rcnn_r50_fpn.csv
+	$ cp work_dirs/cascade_rcnn_r50_fpn.csv ../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
 	```
 
 3. cascade-rcnn-swin-base
@@ -208,6 +210,7 @@ $ rm -rf ./dataset/*/.*.jpg
 	$ cd ./mmdetection
 	$ python confings/trash/swin/cascade_rcnn_swin_base_fpn.py work_dirs/cascade_rcnn_swin_base_fpn/best*.pth --out work_dirs/cascade_rcnn_swin_base_fpn/best.pkl
 	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl --csv work_dirs/cascade_rcnn_swin_base_fpn.csv
+	$ cp work_dirs/cascade_rcnn_swin_base_fpn.csv ../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
 	```
 
 4. YOLOv5x6
