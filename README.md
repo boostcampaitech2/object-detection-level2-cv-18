@@ -1,3 +1,8 @@
+# 0. Quick Start
+```bash
+$ sh run.sh
+```
+
 # 1. Preparing
 
 ## 1.1. Environments
@@ -22,8 +27,8 @@
 ```bash
 $ wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
 $ tar xvfz data.tar.gz
-$ mv data/ dataset
-$ rm data.tar.gz
+$ mv ./data/ ./dataset
+$ rm ./data.tar.gz
 $ rm -rf ./dataset/*/.*.jpg
 ```
 * dataset(*COCO Format*) structure
@@ -48,20 +53,20 @@ $ rm -rf ./dataset/*/.*.jpg
 1. MMDetection
 	```bash
 	$ git clone https://github.com/open-mmlab/mmdetection.git
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ pip install -v -e . 
 	```
 2. YOLOv5
 	```bash
 	$ git clone https://github.com/ultralytics/yolov5.git
-	$ cd yolov5
+	$ cd ./yolov5
 	$ pip install -r requirements.txt
 	```
 
 3. convert2Yolo
 	```bash
 	$ git clone https://github.com/ssaru/convert2Yolo.git
-	$ cd convert2Yolo
+	$ cd ./convert2Yolo
 	$ pip3 install -r requirements.txt
 	```
 
@@ -69,7 +74,7 @@ $ rm -rf ./dataset/*/.*.jpg
 	```bash
 	$ pip install ensemble-boxes
 	```
-	> ref : [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
+	> ref: [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
 
 ## 1.4. Completed Structure
 ```plain text
@@ -123,7 +128,7 @@ $ rm -rf ./dataset/*/.*.jpg
 
 * Convert dataset format by using `convert2Yolo`
 	```bash
-	$ cd convert2Yolo
+	$ cd ./convert2Yolo
 	$ python3 example.py --datasets COCO --img_path ../dataset/ --label ../dataset/train.json --convert_output_path ../dataset/ --img_type ".jpg" --manifest_path ../dataset --cls_list_file ../dataset/trash_coco.names
 	```
 
@@ -163,19 +168,19 @@ $ rm -rf ./dataset/*/.*.jpg
 ## 2.2. Train 4 models
 1. detectors-cascade-rcnn-r50
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python tools/train.py configs/trash/detectors_cascade_rcnn_r50.py
 	```
 
 2. cascade-rcnn-swin-base
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python configs/trash/swin/cascade_rcnn_swin_base_fpn.py
 	```
 
 3. cascade-rcnn-r50-fpn
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python tools/train.py configs/trash/cascade_rcnn_r50_fpn.py 
 	```
 
@@ -187,42 +192,40 @@ $ rm -rf ./dataset/*/.*.jpg
 # 3. Inference and Make Submission
 1. detectors-cascade-rcnn-r50
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python tools/test.py confings/trash/detectors_cascade_rcnn_r50.py work_dirs/detectors_cascade_rcnn_r50/best*.pth --out work_dirs/detectors_cascade_rcnn_r50/best.pkl
 	$ python tools/pkl_to_submission.py --pkl work_dirs/detectors_cascade_rcnn_r50/best.pkl --csv work_dirs/detectors_cascade_rcnn_r50.csv
 	```
 
 2. cascade-rcnn-r50-fpn
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python confings/trash/cascade_rcnn_r50_fpn.py work_dirs/cascade_rcnn_r50_fpn/best*.pth --out work_dirs/cascade_rcnn_r50_fpn/best.pkl
-	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl --csv work_dirs/cascade_rcnn_swin_base_fpn.csv
+	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_r50_fpn/best.pkl --csv work_dirs/cascade_rcnn_r50_fpn.csv
 	```
 
 3. cascade-rcnn-swin-base
 	```bash
-	$ cd mmdetection
+	$ cd ./mmdetection
 	$ python confings/trash/swin/cascade_rcnn_swin_base_fpn.py work_dirs/cascade_rcnn_swin_base_fpn/best*.pth --out work_dirs/cascade_rcnn_swin_base_fpn/best.pkl
-	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_r50_fpn/best.pkl --csv work_dirs/cascade_rcnn_r50_fpn.csv
+	$ python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl --csv work_dirs/cascade_rcnn_swin_base_fpn.csv
 	```
 
 4. YOLOv5x6
-	* Train pre-trained model for 10-epochs
-	* Train pre-trained model for 20-epochs
 	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
 
 
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
-	* Default Config
+	* Config Format
 		```json
 		{
-    		"csvs": ["./output447jia.csv", 
-    		         "./output455ik.csv",
-    		         "./output487.csv",
-    		         "./output530.csv",
-    		         "./output541.csv",
-    		         "./output559.csv"
+    		"csvs": ["./output_0.csv", 
+    		         "./output_1.csv",
+    		         "./output_2.csv",
+    		         "./output_3.csv",
+    		         "./output_4.csv",
+    		         "./output_5.csv"
     		         ],
     		"save_path": "./result_outputs.csv",
     		"ensemble_mode": "wbf",
@@ -236,16 +239,12 @@ $ rm -rf ./dataset/*/.*.jpg
 		> **csvs:** 단일 모델이 예측한 결과 `csv` 파일들  
 		> **ensemble_mode:** Choose the ensemble mode (`wbf`, `nms`, `nmw`, `snms`)  
 
-# 5. From train To submission
+# 5. Get the `submission.csv`
 ```bash
-$ python run.py
-```
-OR
-```bash
-$ sh run.sh
+$ python ensemble.py
 ```
 
 # 6. Participants
 |name|김서기|김승훈|손지아|이상은|조익수|배민한|
-|:--:|:---:|:---:|:---:|:---:|:---:|:---:|
+|:--:|:----:|:----:|:----:|:----:|:----:|:----:|
 
