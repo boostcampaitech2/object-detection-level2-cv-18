@@ -4,25 +4,21 @@
 0. System
 	<details>
 		<summary>OS</summary>
-		<div markdown="1">
-			```plain text
-			$ uname -a
-			Linux 78709cb2ea9c 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
-			```
-			> 커널: *4.4.0-59-generic* 버전
-			> OS : x86 계열의 64bit 운영체제
-		</div>
+		<code>
+		$ uname -a
+		Linux 78709cb2ea9c 4.4.0-59-generic #80-Ubuntu SMP Fri Jan 6 17:47:47 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+		</code>
+		> 커널: *4.4.0-59-generic* 버전 <br>
+		> OS : x86 계열의 64bit 운영체제
 	</details>
 	<details>
 		<summary>CPU</summary>
-		<div markdown="1">
-			```plain text
-			$ cat /proc/cpuinfo 
-			Intel(R) Xeon(R) Gold 5120 CPU @ 2.20GHz
-			```
-			> 커널: *4.4.0-59-generic* 버전
-			> OS : x86 계열의 64bit 운영체제
-		</div>
+		<code>
+		$ cat /proc/cpuinfo 
+		Intel(R) Xeon(R) Gold 5120 CPU @ 2.20GHz
+		</code>
+		> 커널: *4.4.0-59-generic* 버전 <br>
+		> OS : x86 계열의 64bit 운영체제
 	</details>
 	* GPU: v100
 1. Python
