@@ -187,7 +187,6 @@ $ rm -rf ./dataset/*/.*.jpg
 4. YOLOv5x6
 	* Train pre-trained model for 10-epochs
 	* Train pre-trained model for 20-epochs
-	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
 
 # 3. Inference and Make Submission
 1. detectors-cascade-rcnn-r50
