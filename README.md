@@ -23,7 +23,7 @@
 ## 1.2. Prepare Dataset
 ```bash
 $ wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
-$ tar -xvfz data.tar.gz dataset
+$ tar xvfz data.tar.gz dataset
 $ rm data.tar.gz
 ```
 * dataset(*COCO Format*) structure
