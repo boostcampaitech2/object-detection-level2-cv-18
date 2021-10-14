@@ -120,7 +120,28 @@ $ pip install ensemble-boxes
 # 3. Inferencing
 
 # 4. Ensembling
-1. WBF (Weighted Boxes Fusion)
+* WBF (Weighted Boxes Fusion)
+	* Default Config
+		```json
+		{
+    			"csvs" : ["./output447jia.csv", 
+    			          "./output455ik.csv",
+    			          "./output487.csv",
+    			          "./output530.csv",
+    			          "./output541.csv",
+    			          "./output559.csv"
+    			          ],
+    			"save_path" : "./result_outputs.csv",
+    			"ensemble_mode" : "wbf",
+    			"weights" : "None",
+    			"iou_thr" : 0.5,
+    			"skip_box_thr" : 0.0001,
+    			"sigma" : 0.1,
+    			"img_size" : 1024
+		}
+		```
+		> **csvs:** 단일 모델이 예측한 결과 `csv` 파일들  
+		> **ensemble_mode:** Choose the ensemble mode (`wbf`, `nms`, `nmw`, `snms`)  
 
 # 5. From train To submission
 ```bash
