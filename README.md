@@ -24,6 +24,7 @@ $ sh run.sh
 1. Python
 
 ## 1.2. Prepare Dataset
+**Get the trash dataset**
 ```bash
 $ wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
 $ tar xvfz data.tar.gz
@@ -31,7 +32,8 @@ $ mv ./data/ ./dataset
 $ rm ./data.tar.gz
 $ rm -rf ./dataset/*/.*.jpg
 ```
-* dataset(*COCO Format*) structure
+
+**Check the dataset structure and format**(COCO format)
 ```plain text
 ./
 └─dataset/
@@ -55,11 +57,14 @@ $ rm -rf ./dataset/*/.*.jpg
 	$ cd ./mmdetection
 	$ pip install -v -e . 
 	```
+	> **reference:** [MMDetection github](https://github.com/open-mmlab/mmdetection)
+
 2. YOLOv5
 	```bash
 	$ cd ./yolov5
 	$ pip install -r requirements.txt
 	```
+	> **reference:** [YOLOv5 github](https://github.com/ultralytics/yolov5)
 
 3. convert2Yolo
 	```bash
@@ -67,12 +72,13 @@ $ rm -rf ./dataset/*/.*.jpg
 	$ cd ./convert2Yolo
 	$ pip3 install -r requirements.txt
 	```
+	> **reference:** [conver2Yolo github](https://github.com/ssaru/convert2Yolo)
 
 4. WBF (Weighted Boxes Fusion)
 	```bash
 	$ pip install ensemble-boxes
 	```
-	> ref: [WBF](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
+	> **reference:** [WBF github](https://github.com/ZFTurbo/Weighted-Boxes-Fusion)
 
 ## 1.4. Completed Structure
 ```plain text
@@ -90,7 +96,6 @@ $ rm -rf ./dataset/*/.*.jpg
 |    └─test.json
 |
 ├─mmdetection/
-|    ├─
 ├─yolov5/
 ├─convert2Yolo
 |
