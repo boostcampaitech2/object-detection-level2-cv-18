@@ -127,7 +127,7 @@ OR
 $ sh run.sh
 ```
 
-6. Participants
----
-participants : [김서기, 김승훈, 손지아, 이상은, 조익수, 배민한]
----
+# 6. Participants
+|name|김서기|김승훈|손지아|이상은|조익수|배민한|
+|github| | | | | | |
+
