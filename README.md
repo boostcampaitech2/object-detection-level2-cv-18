@@ -6,6 +6,9 @@
 
 ## :two: Models
 
+> **Run in 'mmdetection' folder**
+
+
 ### cascade_rcnn_r50_fpn
 
 `sh tools/run_cascade.sh`
@@ -44,6 +47,11 @@ python tools/test.py confings/trash/swin/cascade_rcnn_swin_base_fpn.py work_dirs
 # mask submission
 python tools/pkl_to_submission.py --pkl work_dirs/cascade_rcnn_swin_base_fpn/best.pkl --csv work_dirs/cascade_rcnn_swin_base_fpn.csv
 ```
+
+---
+
+> **Run in 'yolov5' folder**
+
 
 
 
