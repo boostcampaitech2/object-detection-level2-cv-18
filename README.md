@@ -125,6 +125,39 @@ $ rm data.tar.gz
 	$ python3 example.py --datasets COCO --img_path ../dataset/ --label ../dataset/train.json --convert_output_path ../dataset/ --img_type ".jpg" --manifest_path ../dataset --cls_list_file ../dataset/trash_coco.names
 	```
 
+* Then, we have the following structure.
+	```plain text
+	./
+	├─dataset/
+	|    ├─train/
+	|    |   ├─0000.jpg
+	|    |   ├─0000.txt # YOLO format
+	|    |   ├─ ...
+	|    |   ├─48xx.jpg
+	|    |   └─48xx.txt # YOLO format
+	|    ├─test/
+	|    |   ├─0000.jpg
+	|    |   ├─ ...
+	|    |   └─4870.jpg
+	|    ├─train.json # COCO format
+	|    └─test.json  # COCO format
+	|
+	├─mmdetection/
+	├─yolov5/
+	├─convert2Yolo
+	|
+	├─submissions_for_sigle_model/
+	|    ├─submission_yolov5s.csv
+	|    ├─submission_faster_rcnn.csv
+	|    ├─...
+	|    └─submission_swin.csv
+	|
+	├─run.py 
+	├─run.sh
+	|
+	└─submission.csv # Result of "python run.py" or "sh run.sh"
+	```
+
 ## 2.2. Train 4 models
 1. detectors-cascade-rcnn-r50
 
