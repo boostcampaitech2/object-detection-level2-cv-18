@@ -4,7 +4,7 @@ tar xvfz data.tar.gz
 rm ./data.tar.gz
 rm -rf ./data/*/.*.jpg
 mv ./data/ ./dataset
-
+cp ./trash_coco.names ./dataset
 
 # 1.2. libraries prepare
 cd ./mmdetection
