@@ -41,6 +41,7 @@ python tools/train.py \
 	configs/trash/swin/cascade_rcnn_swin_base_fpn.py
 python tools/train.py \
 	configs/trash/cascade_rcnn_r50_fpn.py 
+# Han
 python tools/train.py \
 	configs/z_config_1/base1008_2.py
 cd ..
@@ -85,7 +86,7 @@ python tools/pkl_to_submission.py \
 cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
 	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
 <<<<<<< HEAD
-
+# Han
 python configs/z_config_1/base1008_2.py \
 	work_dirs/base1008_2/best.pkl \
 	--out work_dirs/base1008_2.py/best.pkl
@@ -94,6 +95,7 @@ python tools/pkl_to_submission.py \
 	--csv work_dirs/base1008_2/submissions_best.csv
 cp work_dirs/best.csv \
 	../submissions_for_single_model/submissions_best.csv
+# Han
 
 # Train and Inference for single model
 # sh tools/tun_detectros.sh
