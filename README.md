@@ -262,9 +262,12 @@ $ rm -rf ./dataset/*/.*.jpg
 	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
     ```bash
     $ cd ./yolov5
-    $ python detect.py --weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt --source ../dataset/test/ --imgsz 1024 --max-det 100 --device 0 --classes 0 1 2 3 4 5 6 7 8 9 --save-txt --save-conf --nosave --augment
+    $ python detect.py --weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt --source ../dataset/test/ --imgsz 1024 --max-det 100 --device 0 --classes 0 1 2 3 4 5 6 7 8 9 --save-txt --save-conf --nosave --augment --name Ensemble
     ```
-
+    * Convert label to CSV format
+    ```bash
+    python convertCSV.py
+    ```
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
 	* Config Format
