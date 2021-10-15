@@ -1,4 +1,5 @@
 # 1.1. dataset prepare
+# seunghun
 wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
 tar xvfz data.tar.gz
 rm ./data.tar.gz
@@ -7,6 +8,7 @@ mv ./data/ ./dataset
 cp ./trash_coco.names ./dataset
 
 # 1.2. libraries prepare
+# seunghun
 cd ./mmdetection
 pip install -v -e .
 
@@ -20,7 +22,8 @@ cd ..
 pip install ensemble-boxes
 
 
-# 2.1. Convert format (coco $\rightarrow$ yolo)
+# 2.1. Convert format (coco -> yolo)
+# seunghun
 cd ./convert2Yolo
 python3 example.py \
  	--datasets COCO \
@@ -32,8 +35,8 @@ python3 example.py \
  	--cls_list_file ../dataset/trash_coco.names
 cd ..
 
-
 # 2.2. Train 4 models
+# sangeun
 cd ./mmdetection
 python tools/train.py \
 	configs/trash/detectors_cascade_rcnn_r50.py
@@ -41,11 +44,13 @@ python tools/train.py \
 	configs/trash/swin/cascade_rcnn_swin_base_fpn.py
 python tools/train.py \
 	configs/trash/cascade_rcnn_r50_fpn.py 
-# Han
+
+# minhan
 python tools/train.py \
 	configs/z_config_1/base1008_2.py
 cd ..
 
+# seogi
 cd ./yolov5
 python train.py \
 	--img 1024 --batch 4 --epochs 10 --data custom.yaml \
@@ -57,6 +62,7 @@ cd ..
 
 
 # 3.1. inference and submission for single models
+# sangeun
 cd ./mmdetection
 python tools/test.py \
 	confings/trash/detectors_cascade_rcnn_r50.py \
@@ -85,31 +91,19 @@ python tools/pkl_to_submission.py \
 	--csv work_dirs/cascade_rcnn_swin_base_fpn.csv
 cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
 	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
-<<<<<<< HEAD
-# Han
+
+# minhan
 python configs/z_config_1/base1008_2.py \
 	work_dirs/base1008_2/best.pkl \
 	--out work_dirs/base1008_2.py/best.pkl
 python tools/pkl_to_submission.py \
 	--pkl work_dirs/base1008_2/best.pkl \
-	--csv work_dirs/base1008_2/submissions_best.csv
-cp work_dirs/best.csv \
-	../submissions_for_single_model/submissions_best.csv
-# Han
-
-# Train and Inference for single model
-# sh tools/tun_detectros.sh
-# cp work_dirs/detectors_cascade_rcnn_r50.csv \
-#	../submissions_for_single_model/submission_detectors_cascade_rcnn_r50.csv
-# sh tools/run_cascade.sh
-# cp work_dirs/cascade_rcnn_r50_fpn.csv \
-#	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
-# sh tools/run_swin.sh
-# cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
-#	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
-=======
+	--csv work_dirs/base1008_2/submission_base1008_2_best.csv
+cp work_dirs/base1008_2/submission_base1008_2_best.csv \
+	../submissions_for_single_model/submission_bbase1008_2_best.csv
 cd..
 
+# seogi
 cd ./yolov5
 python detect.py \
 	--weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt \
@@ -123,9 +117,8 @@ python detect.py \
 	--augment
 python convertcsv.py
 cd..
->>>>>>> 6fa67bed3440bb61dc34dd3054553dd22f3b5ab3
-
 
 # 4. ensemble and get final submission
+# seunghun
 python ensemble.py
 
