@@ -45,6 +45,15 @@ python tools/train.py \
 	configs/z_config_1/base1008_2.py
 cd ..
 
+cd ./yolov5
+python train.py \
+	--img 1024 --batch 4 --epochs 10 --data custom.yaml \
+	--weights yolov5x6.pt --cache --name 10epoch
+python train.py \
+	--img 1024 --batch 4 --epochs 20 --data custom.yaml \
+	--weights yolov5x6.pt --cache --name 20epochs
+cd ..
+
 
 # 3.1. inference and submission for single models
 cd ./mmdetection
@@ -75,6 +84,7 @@ python tools/pkl_to_submission.py \
 	--csv work_dirs/cascade_rcnn_swin_base_fpn.csv
 cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
 	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
+<<<<<<< HEAD
 
 python configs/z_config_1/base1008_2.py \
 	work_dirs/base1008_2/best.pkl \
@@ -95,7 +105,25 @@ cp work_dirs/best.csv \
 # sh tools/run_swin.sh
 # cp work_dirs/cascade_rcnn_swin_base_fpn.csv \
 #	../submissions_for_single_model/submission_cascade_rcnn_r50_fpn.csv
+=======
+cd..
+
+cd ./yolov5
+python detect.py \
+	--weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt \
+	 --source ../dataset/test/ \
+	--imgsz 1024 \
+	--max-det 100 \
+	--device 0 \
+	--classes 0 1 2 3 4 5 6 7 8 9 \
+	--save-txt --save-conf \
+	--nosave \
+	--augment
+python convertcsv.py
+cd..
+>>>>>>> 6fa67bed3440bb61dc34dd3054553dd22f3b5ab3
 
 
 # 4. ensemble and get final submission
 python ensemble.py
+

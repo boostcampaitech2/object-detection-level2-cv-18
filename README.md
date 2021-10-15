@@ -6,7 +6,7 @@ $ sh run.sh
 # 1. Preparing
 
 ## 1.1. Environments
-0. System
+1. System
 	* OS
 	```plain text
 	$ uname -a
@@ -20,8 +20,12 @@ $ sh run.sh
 	$ cat /proc/cpuinfo 
 	Intel(R) Xeon(R) Gold 5120 CPU @ 2.20GHz
 	```
-	* GPU: v100
-1. Python
+	
+	* GPU
+		* aistage 에서 제공받은 v100 GPU (NVIDIA 테슬라 Tesla V100 32G GPU)
+
+2. Python
+	* version: 3.7.11
 
 ## 1.2. Prepare Dataset
 **Get the trash dataset**
@@ -260,11 +264,24 @@ $ rm -rf ./dataset/*/.*.jpg
 
 4. YOLOv5x6
 	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
-    ```bash
-    $ cd ./yolov5
-    $ python detect.py --weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt --source ../dataset/test/ --imgsz 1024 --max-det 100 --device 0 --classes 0 1 2 3 4 5 6 7 8 9 --save-txt --save-conf --nosave --augment
-    ```
-
+		```bash
+		$ cd ./yolov5
+		$ python detect.py \
+			--weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt \
+			--source ../dataset/test/ \
+			--imgsz 1024 \
+			--max-det 100 \
+			--device 0 \
+			--classes 0 1 2 3 4 5 6 7 8 9 \
+			--save-txt --save-conf \
+			--nosave \
+			--augment
+		```
+	* Convert labels to CSV file 
+		``` bash
+		$ cd ./yolov5
+		$ python convertcsv.py
+		```
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
 	* Config Format
@@ -295,6 +312,7 @@ $ python ensemble.py
 ```
 
 # 6. Participants
-|name|김서기|김승훈|손지아|이상은|조익수|배민한|
+|이름|김서기|김승훈|손지아|이상은|조익수|배민한|
 |:--:|:----:|:----:|:----:|:----:|:----:|:----:|
+|역할| | | | | | |
 
