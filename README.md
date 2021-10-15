@@ -260,10 +260,19 @@ $ rm -rf ./dataset/*/.*.jpg
 
 4. YOLOv5x6
 	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
-    ```bash
-    $ cd ./yolov5
-    $ python detect.py --weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt --source ../dataset/test/ --imgsz 1024 --max-det 100 --device 0 --classes 0 1 2 3 4 5 6 7 8 9 --save-txt --save-conf --nosave --augment
-    ```
+		```bash
+		$ cd ./yolov5
+		$ python detect.py \
+			--weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt \
+			--source ../dataset/test/ \
+			--imgsz 1024 \
+			--max-det 100 \
+			--device 0 \
+			--classes 0 1 2 3 4 5 6 7 8 9 \
+			--save-txt --save-conf \
+			--nosave \
+			--augment
+		```
 
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
@@ -295,6 +304,6 @@ $ python ensemble.py
 ```
 
 # 6. Participants
-|name|김서기|김승훈|손지아|이상은|조익수|배민한|
+|이름|김서기|김승훈|손지아|이상은|조익수|배민한|
 |:--:|:----:|:----:|:----:|:----:|:----:|:----:|
-
+|역할| | | | | | |
