@@ -274,10 +274,10 @@ $ rm -rf ./dataset/*/.*.jpg
 			--augment
 		```
 	* Convert labels to CSV file 
-	``` bash
+		``` bash
 		$ cd ./yolov5
 		$ python convertcsv.py
-	```
+		```
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
 	* Config Format
