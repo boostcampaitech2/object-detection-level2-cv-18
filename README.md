@@ -194,12 +194,28 @@ $ rm -rf ./dataset/*/.*.jpg
 	```bash
 	$ cd ./mmdetection
 	$ python tools/train.py \
-		configs/trash/cascade_rcnn_r50_fpn.py 
+	    configs/trash/cascade_rcnn_r50_fpn.py 
 	```
 
 4. YOLOv5x6
+    * Before training 
+    ```bash
+    $ cd ./yolov5
+    $ pip install -r requirements.txt
+    ```
 	* Train pre-trained model for 10-epochs
+    ```bash
+    $ python train.py \
+        --img 1024 --batch 4 --epochs 10 --data custom.yaml \
+        --weights yolov5x6.pt --cache --name 10epoch
+    ```
 	* Train pre-trained model for 20-epochs
+    ```bash
+    $ python train.py \
+        --img 1024 --batch 4 --epochs 20 --data custom.yaml \
+        --weights yolov5x6.pt --cache --name 20epochs
+    ```
+    
 
 # 3. Inference and Make Submission
 1. detectors-cascade-rcnn-r50
@@ -244,7 +260,10 @@ $ rm -rf ./dataset/*/.*.jpg
 
 4. YOLOv5x6
 	* Ensemble 2 models (Use YOLOv5 built-in ensemble)
-
+    ```bash
+    $ cd ./yolov5
+    $ python detect.py --weights ./weights/runs/10epoch/train/best.pt ./weights/runs/20epoch/train/best.pt --source ../dataset/test/ --imgsz 1024 --max-det 100 --device 0 --classes 0 1 2 3 4 5 6 7 8 9 --save-txt --save-conf --nosave --augment
+    ```
 
 # 4. Ensembling
 * WBF (Weighted Boxes Fusion)
