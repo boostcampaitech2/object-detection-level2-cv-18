@@ -20,8 +20,11 @@ $ sh run.sh
 	$ cat /proc/cpuinfo 
 	Intel(R) Xeon(R) Gold 5120 CPU @ 2.20GHz
 	```
-	* GPU: v100
+	* GPU
+		* aistage 에서 제공받은 v100 GPU (NVIDIA 테슬라 Tesla V100 32G GPU)
+
 1. Python
+	* version: 3.7.11
 
 ## 1.2. Prepare Dataset
 **Get the trash dataset**
