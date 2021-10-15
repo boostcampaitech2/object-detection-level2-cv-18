@@ -6,7 +6,7 @@ $ sh run.sh
 # 1. Preparing
 
 ## 1.1. Environments
-0. System
+1. System
 	* OS
 	```plain text
 	$ uname -a
@@ -20,10 +20,11 @@ $ sh run.sh
 	$ cat /proc/cpuinfo 
 	Intel(R) Xeon(R) Gold 5120 CPU @ 2.20GHz
 	```
+	
 	* GPU
 		* aistage 에서 제공받은 v100 GPU (NVIDIA 테슬라 Tesla V100 32G GPU)
 
-1. Python
+2. Python
 	* version: 3.7.11
 
 ## 1.2. Prepare Dataset
