@@ -1,7 +1,7 @@
 # 1.1. dataset prepare
 # seunghun
 wget https://aistages-prod-server-public.s3.amazonaws.com/app/Competitions/000076/data/data.tar.gz
-tar xvfz data.tar.gz
+tar -xvfz data.tar.gz
 rm ./data.tar.gz
 rm -rf ./data/*/.*.jpg
 mv ./data/ ./dataset
