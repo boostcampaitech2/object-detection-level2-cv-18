@@ -5,7 +5,7 @@
 
 ### 2. Evaluation Procedure
 * mAP50
-* `dataset` ➡ ` submission.csv` pipeline 구축
+* `dataset` → ` submission.csv` pipeline 구축
 
 ### 3. Describe trash dataset
 
